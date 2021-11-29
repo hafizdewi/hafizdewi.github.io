@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Box sizing rules */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Remove default margin */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure,
+        blockquote,
+        dl,
+        dd {
+            margin: 0;
+        }
+
+        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+        ul[role='list'],
+        ol[role='list'] {
+            list-style: none;
+        }
+
+        /* Set core root defaults */
+        html:focus-within {
+            scroll-behavior: smooth;
+        }
+
+        /* Set core body defaults */
+        body {
+            min-height: 100vh;
+            text-rendering: optimizeSpeed;
+            line-height: 1.5;
+        }
+
+        /* A elements that don't have a class get default styles */
+        a:not([class]) {
+            text-decoration-skip-ink: auto;
+        }
+
+        /* Make images easier to work with */
+        img,
+        picture {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Inherit fonts for inputs and buttons */
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+        @media (prefers-reduced-motion: reduce) {
+            html:focus-within {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <style>
+        .wrapper {
+            position: relative;
+            margin: 0 auto;
+            max-width: 600px;
+            height: 100vh;
+        }
+
+        .header {
+            position: absolute;
+            width: 600px;
+            height: 50px;
+            left: 0px;
+            top: 0px;
+            background: #5C4FE7;
+        }
+
+        .header_logo {
+            position: absolute;
+            left: 3.33%;
+            right: 77.23%;
+            top: 13px;
+            bottom: 95.37%;
+        }
+
+        .header_text {
+            position: absolute;
+            width: 267px;
+            height: 17px;
+            left: 313px;
+            top: 17px;
+            font-family: Montserrat;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            align-items: center;
+            text-align: right;
+            color: #FFFFFF;
+            float: right;
+        }
+
+        .content {
+            position: absolute;
+        }
+
+        .content_title {
+            position: absolute;
+            width: 469px;
+            height: 29px;
+            left: 65px;
+            top: 98px;
+
+            font-family: Montserrat;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 29px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #5C4FE7;
+        }
+
+        .content_banner {
+            position: absolute;
+            height: 95px;
+            width: 248px;
+            left: 176px;
+            top: 148px;
+            border-radius: 0px;
+        }
+
+        .content_text {
+            position: absolute;
+            width: 194px;
+            height: 22px;
+            left: 65px;
+            top: 304px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+
+            color: #5C4FE7;
+        }
+
+        .content_text2 {
+            position: absolute;
+            width: 292px;
+            height: 22px;
+            left: 154px;
+            top: 358px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .content_text3 {
+            position: absolute;
+            width: 212px;
+            height: 22px;
+            left: 194px;
+            top: 429px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .content_text4 {
+            position: absolute;
+            width: 385px;
+            height: 30px;
+            left: 105px;
+            top: 566px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .content_input1 {
+            position: absolute;
+            width: 470px;
+            height: 30px;
+            left: 64px;
+            top: 389px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 30px;
+            align-items: center;
+            text-align: center;
+
+            background: #E5E5E5;
+        }
+
+        .content_input2 {
+            position: absolute;
+            width: 470px;
+            height: 30px;
+            left: 64px;
+            top: 460px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 30px;
+            align-items: center;
+            text-align: center;
+            background: #E5E5E5;
+        }
+
+        .content_button {
+            position: absolute;
+            width: 180px;
+            height: 40px;
+            left: 210px;
+            top: 516px;
+        }
+
+        .button {
+            background-color: #03B7BA;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 9px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        .footer {
+            position: absolute;
+            width: 600px;
+            height: 30px;
+            left: 0px;
+            top: 770px;
+            background: #5C4FE7;
+        }
+
+        .footer p {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 25px;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <span class="header_logo">
+                <svg width="117" height="25" viewBox="0 0 117 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M64.8998 11.5786C64.9055 11.5786 64.9055 11.5729 64.9112 11.5729C64.9055 11.5729 64.8998 11.5786 64.8941 11.5786H64.8998Z"
+                        fill="white" />
+                    <path
+                        d="M81.4088 5.95156C75.9621 6.17916 70.309 8.91043 64.91 11.5782C69.5997 9.41328 74.4906 7.61361 79.2068 7.31719C81.1229 7.19545 83.1608 7.41247 84.0818 8.78869C85.204 10.4666 84.1665 13.2244 82.4991 15.2199C74.4588 24.827 65.6987 18.491 59.6274 12.0334C66.101 9.12745 72.601 6.57086 79.2015 5.21052C81.2606 4.78706 83.3778 4.48535 85.1828 4.96703C86.8872 5.41695 87.914 6.65555 88.4275 8.14822C90.5924 -4.12132 68.4511 4.32656 57.1873 9.28625C56.4251 8.38641 55.7317 7.53421 55.1124 6.77729C54.9271 6.49675 51.9153 2.00286 49.7292 0.944232C44.8013 -1.44828 38.3013 1.0448 32.9446 4.63356C29.0065 7.27485 24.1103 10.9854 22.3795 15.3681C20.5692 19.9467 23.5122 23.4825 27.7414 23.943C31.399 24.3453 35.4906 22.895 39.3546 21.2911C45.7911 18.6128 52.18 15.4104 58.5847 12.5045C60.4002 14.8441 62.4275 16.9984 64.9841 18.7504C69.0916 21.5664 76.2585 24.1018 82.2768 20.0261C89.105 15.4051 89.1262 5.63397 81.4088 5.95156ZM52.1905 11.5623C46.0769 14.4471 39.1852 17.57 32.8811 18.0835C30.2345 18.3005 26.3388 17.7341 27.7309 14.2089C28.1543 13.1344 28.9695 12.1551 29.8111 11.2447C33.5322 7.21662 38.7989 2.91858 43.9597 1.73821C48.0989 0.79073 50.9678 2.64863 53.3127 4.99879C53.6885 5.5334 54.2178 6.25327 54.2496 6.3062C54.9906 7.41247 55.7264 8.51874 56.4727 9.59854C54.6572 10.4031 53.1751 11.0965 52.1905 11.5623Z"
+                        fill="white" />
+                    <path
+                        d="M22.0831 8.64048L22.1889 8.2435L22.5859 6.76141L22.8135 5.9198H21.9719H5.82777H4.98615L4.76384 6.76141L4.35098 8.28584L4.12866 9.12745H4.97027H16.1865L1.11686 19.2427L0.741042 19.4915L0.635179 19.8884L0.222313 21.4182L0 22.2545H0.841612H17.8485H18.6848L18.9125 21.4182L19.32 19.8884L19.5476 19.0521H18.706H6.50529L21.7072 8.89455L22.0831 8.64048Z"
+                        fill="white" />
+                    <path
+                        d="M115.804 6.0257H112.781H112.331L111.982 6.39622L100.978 18.1788L96.2931 6.40151L96.1449 6.0257H95.695H92.7467H91.9104L91.6881 6.86731L87.7552 21.5188L87.5329 22.3604H88.3745H90.206H91.0423L91.2699 21.5188L94.1176 10.8848L98.4421 21.9793L98.5903 22.3604H99.0403H100.893H101.343L101.692 21.9793L111.776 11.086L108.981 21.5188L108.753 22.3604H109.595H111.426H112.263L112.49 21.5188L116.418 6.86731L116.64 6.0257H115.804Z"
+                        fill="white" />
+                </svg>
+            </span>
+            <span class="header_text">
+                DELIVERING INFINITE POSSIBILITIES
+            </span>
+        </div>
+        <div class="content">
+            <span class="content_title">We have a package zooming to you!</span>
+            <span class="content_banner">
+
+                <svg width="248" height="95" viewBox="0 0 248 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M182.362 67.9374H182.499H187.444C188.269 67.9374 188.818 67.2505 188.681 66.4263C187.582 59.6949 178.927 56.9475 175.768 56.1232C174.943 55.8485 174.257 55.299 173.982 54.6121L168.624 43.3475C169.311 43.7596 169.998 43.897 170.822 43.897H173.57C173.982 43.897 174.257 43.6222 174.257 43.2101V34.1434C174.257 33.7313 173.982 33.4565 173.57 33.4565H170.822C169.586 33.4565 168.35 34.006 167.525 34.9677C167.388 34.2808 167.113 33.4565 166.838 32.4949C166.426 30.9838 164.64 31.2586 162.442 31.8081C159.42 32.4949 156.535 33.1818 153.513 33.4565L152.277 33.5939C151.865 32.2202 150.766 31.1212 149.392 30.8464L141.699 28.9232C140.325 27.2747 138.677 25.2141 136.067 22.3293C135.655 21.9171 134.143 19.9939 131.533 19.307C129.198 18.7575 126.176 17.7959 123.703 19.307C121.23 20.6808 119.719 23.1535 119.307 26.0384L117.109 46.0949C116.972 47.4687 117.384 48.705 118.208 49.6666C119.032 50.6283 120.406 51.1778 121.642 51.1778H140.875L140.188 68.2121C140.051 70.8222 142.111 72.8828 144.584 73.0202H144.721C147.194 73.0202 149.255 71.097 149.392 68.6242L150.354 46.9192C150.354 45.6828 149.941 44.4464 149.117 43.4848C148.293 42.5232 147.057 42.1111 145.82 42.1111H133.869L134.693 33.1818C135.655 34.2808 136.341 35.105 136.341 35.105C136.891 35.7919 137.715 36.3414 138.539 36.4788L147.606 38.6767C147.881 38.8141 148.293 38.8141 148.568 38.8141C149.529 38.8141 150.354 38.5394 151.04 37.8525L154.887 37.303C155.024 37.8525 155.162 38.5394 155.162 39.2262C155.574 42.2485 156.535 43.4848 158.321 43.897C159.695 48.9798 161.206 56.9475 162.305 61.8929C162.717 64.2283 162.03 66.701 160.382 68.4869L155.162 74.1192C154.2 75.0808 152.964 75.6303 151.59 75.6303H136.067C134.281 75.6303 132.907 74.2565 133.044 72.4707L133.319 62.305H134.968C135.929 62.305 136.891 61.6182 137.166 60.5192L137.99 57.2222C138.265 55.8485 137.303 54.4747 135.792 54.4747H91.695C89.7717 54.4747 89.0849 56.9475 90.596 58.0465L98.0142 62.8545C93.6182 67.5252 92.794 74.2565 92.6566 77.2788C92.6566 78.103 93.3434 78.7899 94.1677 78.7899H97.3273C97.3273 79.3394 97.1899 79.8889 97.1899 80.4384C97.1899 88.5434 103.784 95 111.752 95C119.307 95 125.489 89.2303 126.313 81.9495C127 82.0869 127.55 82.0869 128.236 82.0869H155.849C157.497 82.0869 159.008 81.2626 160.107 80.0262C160.107 80.1636 160.107 80.1636 160.107 80.301C160.107 88.9556 167.525 95.8242 176.317 94.8626C182.636 94.1758 187.994 89.0929 189.093 82.7737C190.329 76.5919 187.307 70.8222 182.362 67.9374ZM112.026 88.8182C107.356 88.8182 103.646 85.1091 103.646 80.4384C103.646 79.8889 103.646 79.3394 103.784 78.7899H108.729C108.455 79.3394 108.317 79.7515 108.317 80.4384C108.317 82.499 109.966 84.0101 111.889 84.0101C113.95 84.0101 115.461 82.3616 115.461 80.4384C115.461 79.8889 115.323 79.3394 115.049 78.7899H119.994V79.202C119.994 79.6141 120.131 80.0263 120.131 80.4384C120.406 85.1091 116.697 88.8182 112.026 88.8182ZM174.943 88.8182C170.273 88.8182 166.564 85.1091 166.564 80.4384C166.564 75.7677 170.273 72.0586 174.943 72.0586C179.614 72.0586 183.323 75.7677 183.323 80.4384C183.323 85.1091 179.477 88.8182 174.943 88.8182Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M174.943 76.8666C172.883 76.8666 171.372 78.5151 171.372 80.4384C171.372 82.499 173.02 84.0101 174.943 84.0101C177.004 84.0101 178.515 82.3616 178.515 80.4384C178.515 78.3777 176.867 76.8666 174.943 76.8666Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M92.1071 51.3151H109.691C111.339 51.3151 112.713 49.9414 112.713 48.2929V31.6707C112.713 30.0222 111.339 28.6484 109.691 28.6484H92.1071C90.4586 28.6484 89.0849 30.0222 89.0849 31.6707V48.2929C89.0849 49.9414 90.4586 51.3151 92.1071 51.3151Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M134.281 6.94344C133.731 6.80607 133.457 6.94344 133.457 6.94344C133.457 6.94344 133.319 7.35556 133.594 8.04243C134.143 9.55354 135.929 11.3394 138.265 11.8889C140.875 12.5758 142.661 12.8505 143.76 12.9879C143.485 11.4768 142.935 9.55354 141.836 6.94344C140.737 7.21819 137.99 7.76768 134.281 6.94344Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M125.489 16.1475L140.737 19.5818C141.699 19.8565 142.523 19.307 142.935 18.4828C143.347 17.3838 143.76 16.4222 143.897 15.3232C142.661 15.1858 140.737 14.9111 137.715 14.2242C133.457 13.2626 130.434 9.00401 130.984 6.39391C131.259 5.15755 132.358 4.05856 134.693 4.60805C137.578 5.15755 139.776 4.8828 140.875 4.74543C136.616 -2.39801 126.313 -0.749525 123.154 4.8828C120.818 8.86664 123.291 13.6747 124.39 15.3232C124.527 15.7353 124.939 16.0101 125.489 16.1475Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M80.0182 47.6061C81.6667 47.6061 82.903 46.3697 82.903 44.7212C82.903 43.0727 81.6667 41.8364 80.0182 41.8364H61.8848C60.2364 41.8364 59 43.0727 59 44.7212C59 46.3697 60.2364 47.6061 61.8848 47.6061H80.0182Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M81.9414 60.107C83.5899 60.107 84.8263 58.8707 84.8263 57.2222C84.8263 55.5737 83.5899 54.3373 81.9414 54.3373H63.8081C62.297 54.3373 61.0606 55.7111 61.0606 57.2222C61.0606 58.8707 62.297 60.107 63.9455 60.107H81.9414Z"
+                        fill="#5C4FE7" />
+                    <path
+                        d="M84.002 66.8384H65.8687C64.2202 66.8384 62.9838 68.0747 62.9838 69.7232C62.9838 71.3717 64.2202 72.6081 65.8687 72.6081H84.002C85.6505 72.6081 86.8869 71.3717 86.8869 69.7232C86.8869 68.0747 85.5131 66.8384 84.002 66.8384Z"
+                        fill="#5C4FE7" />
+                    <line y1="93.5" x2="248" y2="93.5" stroke="#5C4FE7" stroke-width="3" />
+                </svg>
+            </span>
+            <span class="content_text">
+                Hi, JEEVAN BATMAN
+            </span>
+            <span class="content_text2">
+                We have a package for you from
+            </span>
+            <span class="content_input1">
+                NOBLE PALACE
+            </span>
+            <span class="content_text3">
+                Here is your tracking ID
+            </span>
+            <span class="content_input2">
+                12629XXX
+            </span>
+            <span class="content_button">
+                <center>
+                    <a href="http://zoomitnow.co/parcel-tracker/" target="_blank"><button class="button"> Track
+                            Package</button></a>
+                </center>
+            </span>
+            <span class="content_text4">
+                <p>
+                    If the link is does not work, please enter your “TRACKING ID” at <a
+                        href="http://zoomitnow.co/parcel-tracker/" target="_blank">Here</a>
+                </p>
+            </span>
+
+
+        </div>
+        <div class="footer">
+            <p>For help, please email us at info@zoomitnow.co or call our helpline at 1-700-81-7574</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Box sizing rules */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Remove default margin */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure,
+        blockquote,
+        dl,
+        dd {
+            margin: 0;
+        }
+
+        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+        ul[role='list'],
+        ol[role='list'] {
+            list-style: none;
+        }
+
+        /* Set core root defaults */
+        html:focus-within {
+            scroll-behavior: smooth;
+        }
+
+        /* Set core body defaults */
+        body {
+            min-height: 100vh;
+            text-rendering: optimizeSpeed;
+            line-height: 1.5;
+        }
+
+        /* A elements that don't have a class get default styles */
+        a:not([class]) {
+            text-decoration-skip-ink: auto;
+        }
+
+        /* Make images easier to work with */
+        img,
+        picture {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Inherit fonts for inputs and buttons */
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+        @media (prefers-reduced-motion: reduce) {
+            html:focus-within {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <style>
+        .wrapper {
+            position: relative;
+            margin: 0 auto;
+            max-width: 600px;
+            height: 100vh;
+        }
+
+        .header {
+            position: absolute;
+            width: 600px;
+            height: 50px;
+            left: 0px;
+            top: 0px;
+            background: #5C4FE7;
+        }
+
+        .header_logo {
+            position: absolute;
+            left: 3.33%;
+            right: 77.23%;
+            top: 13px;
+            bottom: 95.37%;
+        }
+
+        .header_text {
+            position: absolute;
+            width: 267px;
+            height: 17px;
+            left: 313px;
+            top: 17px;
+            font-family: Montserrat;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            align-items: center;
+            text-align: right;
+            color: #FFFFFF;
+            float: right;
+        }
+
+        .content {
+            position: absolute;
+        }
+
+        .content_title {
+            position: absolute;
+            width: 469px;
+            height: 29px;
+            left: 65px;
+            top: 98px;
+
+            font-family: Montserrat;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 29px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #5C4FE7;
+        }
+
+        .content_banner {
+            position: absolute;
+            width: 520px;
+            height: 215px;
+            left: 40px;
+            top: 143px;
+        }
+
+        .content_text {
+            position: absolute;
+            width: 194px;
+            height: 22px;
+            left: 65px;
+            top: 388px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+
+            color: #5C4FE7;
+        }
+
+        .content_text2 {
+            position: absolute;
+            width: 292px;
+            height: 22px;
+            left: 154px;
+            top: 442px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .content_text3 {
+            position: absolute;
+            width: 212px;
+            height: 22px;
+            left: 194px;
+            top: 513px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .content_text4 {
+            position: absolute;
+            width: 385px;
+            height: 30px;
+            left: 105px;
+            top: 650px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .content_input1 {
+            position: absolute;
+            width: 470px;
+            height: 30px;
+            left: 64px;
+            top: 473px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 30px;
+            align-items: center;
+            text-align: center;
+
+            background: #E5E5E5;
+        }
+
+        .content_input2 {
+            position: absolute;
+            width: 470px;
+            height: 30px;
+            left: 64px;
+            top: 544px;
+
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 30px;
+            align-items: center;
+            text-align: center;
+            background: #E5E5E5;
+        }
+
+        .content_button {
+            position: absolute;
+            width: 180px;
+            height: 40px;
+            left: 210px;
+            top: 600px;
+        }
+
+        .button {
+            background-color: #03B7BA;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 9px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        .footer {
+            position: absolute;
+            width: 600px;
+            height: 30px;
+            left: 0px;
+            top: 770px;
+            background: #5C4FE7;
+        }
+
+        .footer p {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 25px;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <span class="header_logo">
+                <svg width="117" height="25" viewBox="0 0 117 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M64.8998 11.5786C64.9055 11.5786 64.9055 11.5729 64.9112 11.5729C64.9055 11.5729 64.8998 11.5786 64.8941 11.5786H64.8998Z"
+                        fill="white" />
+                    <path
+                        d="M81.4088 5.95156C75.9621 6.17916 70.309 8.91043 64.91 11.5782C69.5997 9.41328 74.4906 7.61361 79.2068 7.31719C81.1229 7.19545 83.1608 7.41247 84.0818 8.78869C85.204 10.4666 84.1665 13.2244 82.4991 15.2199C74.4588 24.827 65.6987 18.491 59.6274 12.0334C66.101 9.12745 72.601 6.57086 79.2015 5.21052C81.2606 4.78706 83.3778 4.48535 85.1828 4.96703C86.8872 5.41695 87.914 6.65555 88.4275 8.14822C90.5924 -4.12132 68.4511 4.32656 57.1873 9.28625C56.4251 8.38641 55.7317 7.53421 55.1124 6.77729C54.9271 6.49675 51.9153 2.00286 49.7292 0.944232C44.8013 -1.44828 38.3013 1.0448 32.9446 4.63356C29.0065 7.27485 24.1103 10.9854 22.3795 15.3681C20.5692 19.9467 23.5122 23.4825 27.7414 23.943C31.399 24.3453 35.4906 22.895 39.3546 21.2911C45.7911 18.6128 52.18 15.4104 58.5847 12.5045C60.4002 14.8441 62.4275 16.9984 64.9841 18.7504C69.0916 21.5664 76.2585 24.1018 82.2768 20.0261C89.105 15.4051 89.1262 5.63397 81.4088 5.95156ZM52.1905 11.5623C46.0769 14.4471 39.1852 17.57 32.8811 18.0835C30.2345 18.3005 26.3388 17.7341 27.7309 14.2089C28.1543 13.1344 28.9695 12.1551 29.8111 11.2447C33.5322 7.21662 38.7989 2.91858 43.9597 1.73821C48.0989 0.79073 50.9678 2.64863 53.3127 4.99879C53.6885 5.5334 54.2178 6.25327 54.2496 6.3062C54.9906 7.41247 55.7264 8.51874 56.4727 9.59854C54.6572 10.4031 53.1751 11.0965 52.1905 11.5623Z"
+                        fill="white" />
+                    <path
+                        d="M22.0831 8.64048L22.1889 8.2435L22.5859 6.76141L22.8135 5.9198H21.9719H5.82777H4.98615L4.76384 6.76141L4.35098 8.28584L4.12866 9.12745H4.97027H16.1865L1.11686 19.2427L0.741042 19.4915L0.635179 19.8884L0.222313 21.4182L0 22.2545H0.841612H17.8485H18.6848L18.9125 21.4182L19.32 19.8884L19.5476 19.0521H18.706H6.50529L21.7072 8.89455L22.0831 8.64048Z"
+                        fill="white" />
+                    <path
+                        d="M115.804 6.0257H112.781H112.331L111.982 6.39622L100.978 18.1788L96.2931 6.40151L96.1449 6.0257H95.695H92.7467H91.9104L91.6881 6.86731L87.7552 21.5188L87.5329 22.3604H88.3745H90.206H91.0423L91.2699 21.5188L94.1176 10.8848L98.4421 21.9793L98.5903 22.3604H99.0403H100.893H101.343L101.692 21.9793L111.776 11.086L108.981 21.5188L108.753 22.3604H109.595H111.426H112.263L112.49 21.5188L116.418 6.86731L116.64 6.0257H115.804Z"
+                        fill="white" />
+                </svg>
+            </span>
+            <span class="header_text">
+                DELIVERING INFINITE POSSIBILITIES
+            </span>
+        </div>
+        <div class="content">
+            <span class="content_title">We have a package zooming to you!</span>
+            <span class="content_banner" style="background-image: url('./banner.png');">
+            </span>
+            <span class="content_text">
+                Hi, JEEVAN BATMAN
+            </span>
+            <span class="content_text2">
+                We have a package for you from
+            </span>
+            <span class="content_input1">
+                NOBLE PALACE
+            </span>
+            <span class="content_text3">
+                Here is your tracking ID
+            </span>
+            <span class="content_input2">
+                12629XXX
+            </span>
+            <span class="content_button">
+                <center>
+                    <a href="http://zoomitnow.co/parcel-tracker/" target="_blank"><button class="button"> Track
+                            Package</button></a>
+                </center>
+            </span>
+            <span class="content_text4">
+                <p>
+                    If the link is does not work, please enter your “TRACKING ID” at <a
+                        href="http://zoomitnow.co/parcel-tracker/" target="_blank">Here</a>
+                </p>
+            </span>
+
+
+        </div>
+        <div class="footer">
+            <p>For help, please email us at info@zoomitnow.co or call our helpline at 1-700-81-7574</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,26 +1,7 @@
 <?php
-// echo 'begin ';
-// $context = stream_context_create( array(
-//                         'ssl' => array(
-// 			'verify_peer'      => false,
-//                         'verify_peer_name' => false,
-// )
-// ) );
-// $res = file_get_contents( 'https://172.217.26.138/maps/api/geocode/json?address=Centrepoint%20Bandar%20Utama&amp;key=AIzaSyCp3Hxu8t-cUuEcPh68Jv-0BEMHWALGMNk&amp;components=country:MY', FALSE, $context );
-/*
-$curl = curl_init();
-curl_setopt_array( $curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'https://172.217.26.138/maps/api/geocode/json?address=Centrepoint%20Bandar%20Utama&amp;key=AIzaSyCp3Hxu8t-cUuEcPh68Jv-0BEMHWALGMNk&amp;components=country:MY'
-) );
-$res = curl_exec( $curl );
-curl_close( $curl );
-*/
-// echo 'Result '.$res;
-// echo ' End';
 
 header( 'Access-Control-Allow-Origin: *' );
-require_once( 'config.php' );
+// require_once( 'config.php' );
 require_once( 'mail_config.php' );
 require 'PHPMailerAutoload.php';
 
@@ -39,17 +20,41 @@ try {
     $mail->Password = $ZOOM_EMAIL_PASSWORD;
     $mail->setFrom( $ZOOM_EMAIL_INFO, $ZOOM_NAME_INFO );
     $mail->addReplyTo( $ZOOM_EMAIL_INFO, $ZOOM_NAME_INFO );
-    //$mail->addAddress( 'capecoi@yahoo.com', 'rusman' );
-    // $mail->addAddress( 'hafizpras@gmail.com', 'Hafiz' );
-    $mail->addAddress( 'jeevan@zoomitnow.co', 'Jeevan' );
+    $mail->addAddress( 'hafizpras@gmail.com', 'Hafiz' );
+    // $mail->addAddress( 'jeevan@zoomitnow.co', 'Jeevan' );
+    // $mail->addAddress( 'billy.tanudjaja@gmail.com', 'Billy' );
+    // $mail->addAddress( 'vinod@zoomitnow.co', 'Vinod' );
+    // $mail->addAddress( 'devan@zoomitnow.co', 'Devan' );
     $mail->Subject = 'Zoom Delivery Status';
 
-    $strHTML =  file_get_contents( 'template1.html' );
+    // $strHTML =  file_get_contents( 'template_default.html' );
+    // $strHTML =  file_get_contents( 'template_with_banner.html' );
     // echo $strHTML;
     // exit;
-    $mail->MsgHTML( $strHTML );
-    $mail->AltBody = 'Testing Template';
+    // $mail->MsgHTML( $strHTML );
+    // $mail->AltBody = 'Testing Template';
 
+    $email_template = 'template_default.html';
+    $email_template2 = 'template_with_banner.html';
+
+    $RECEIVER_NAME = 'Hafiz';
+    $CLIENT_NAME = 'Vega';
+    $TRACKING_ID = '3ce656a';
+    $BANNER = '';
+    if ( $BANNER == '' ) {
+
+        $message = file_get_contents( $email_template );
+        $message = str_replace( '%RECEIVER_NAME%', $RECEIVER_NAME, $message );
+        $message = str_replace( '%CLIENT_NAME%', $CLIENT_NAME, $message );
+        $message = str_replace( '%TRACKING_ID%', $TRACKING_ID, $message );
+    } else {
+        $message = file_get_contents( $email_template2 );
+        $message = str_replace( '%RECEIVER_NAME%', $RECEIVER_NAME, $message );
+        $message = str_replace( '%CLIENT_NAME%', $CLIENT_NAME, $message );
+        $message = str_replace( '%TRACKING_ID%', $TRACKING_ID, $message );
+        $message = str_replace( '%BANNER%', $BANNER, $message );
+    }
+    $mail->MsgHTML( $message );
     $mail->SMTPOptions = array (
         'ssl' => array(
             'verify_peer'  => false,
